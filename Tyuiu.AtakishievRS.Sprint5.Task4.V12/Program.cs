@@ -21,14 +21,12 @@ internal class Program
         Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ                                                         *");
         Console.WriteLine("***************************************************************************");
 
-        string filePath = @"C:\Users\bogra\Desktop\ПРОГАВУЗТИУ\Tyuiu.AtakishievRS.Sprint5\Tyuiu.AtakishievRS.Sprint5.Task4.V12.Lib\bin\Debug\OutPutFileTask4.txt";
-        double result = ds.LoadFromDataFile(filePath);
-
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
         Console.WriteLine("***************************************************************************");
 
-        Console.WriteLine("Результат: " + result);
+        Console.WriteLine(ds.LoadFromDataFile(@"C:\DataSprint5\InPutDataFileTask4V12.txt"));
+        Console.ReadLine();
         Console.ReadKey();
     }
 }

@@ -6,14 +6,7 @@ namespace Tyuiu.AtakishievRS.Sprint5.Task4.V12.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            string newPath = Path.Combine(Path.GetTempPath(), "OutPutFileTask4.txt");
-
-            File.WriteAllText(newPath, "1.5");
-
-            FileInfo fileInfo = new FileInfo(newPath);
-            bool fileExists = fileInfo.Exists;
-
-            double x = Convert.ToDouble(File.ReadAllText(newPath).Replace('.', ','));
+            double x = Convert.ToDouble(File.ReadAllText(path).Replace('.', ','));
             double y = Math.Cos(Math.Pow(x, 3)) + x / 2;
             return Math.Round(y, 3);
         }
