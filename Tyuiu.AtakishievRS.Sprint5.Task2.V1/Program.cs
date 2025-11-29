@@ -6,8 +6,8 @@ internal class Program
         int[,] mtrx = new int[3, 3] { {6,9,4 },
                                           {7,2,4 },
                                           {4,8,3 }};
-        int rows = mtrx.GetUpperBound(0) + 1;
-        int colms = mtrx.Length / rows;
+        int rows = mtrx.GetLength(0);    
+        int colms = mtrx.GetLength(1);
         DataService ds = new DataService();
 
         Console.Title = "Спринт #5 | Выполнил: Атакишиев Р.С. | РППб-25-1";
