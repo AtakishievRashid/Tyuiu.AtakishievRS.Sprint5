@@ -8,28 +8,14 @@ namespace Tyuiu.AtakishievRS.Sprint5.Task7.V23.Lib
         {
             string pathSaveFile = Path.GetTempFileName();
 
-            FileInfo fileInfo = new FileInfo(pathSaveFile);
-            bool fileExists = fileInfo.Exists;
-
-            if (fileExists)
-            {
-                File.Delete(pathSaveFile);
-            }
-
-            string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        strLine = Regex.Replace(line, @"\b\p{IsCyrillic}+\b", "");
-                    }
-                    strLine = ", World! This.";
+                    string strLine = Regex.Replace(line, @"\b\p{IsCyrillic}+\b", "");
 
                     File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
-                    strLine = "";
                 }
             }
 

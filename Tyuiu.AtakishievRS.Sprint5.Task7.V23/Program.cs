@@ -23,7 +23,7 @@ internal class Program
         Console.WriteLine("***************************************************************************");
 
         string path = $@"C:\DataSprint5\InPutDataFileTask7V23.txt";
-        string pathSaveFile = $@"C:\DataSprint5\OutPutDataFileTask7V23.txt";
+        string expectedOutputPath = $@"C:\DataSprint5\OutPutDataFileTask7V23.txt";
 
 
         Console.WriteLine("Данные находяться в файле: " + path);
@@ -32,9 +32,14 @@ internal class Program
         Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
         Console.WriteLine("***************************************************************************");
 
+        string tempFilePath = ds.LoadDataAndSave(path);
+
+        File.Copy(tempFilePath, expectedOutputPath, true);
+        File.Delete(tempFilePath); 
+
         Console.WriteLine("Находится в файле : ");
-        pathSaveFile = ds.LoadDataAndSave(path);
-        Console.WriteLine(pathSaveFile);
+        Console.WriteLine(expectedOutputPath);
+
         Console.ReadKey();
 
     }
